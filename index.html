@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>دليل معايرة الماصات | غرفة المعايرة</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:'Thmanyah Sans';src:url('fonts/thmanyahsans-Regular.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'Thmanyah Sans';src:url('fonts/thmanyahsans-Medium.woff2') format('woff2');font-weight:500;font-display:swap}
+@font-face{font-family:'Thmanyah Sans';src:url('fonts/thmanyahsans-Bold.woff2') format('woff2');font-weight:700;font-display:swap}
+@font-face{font-family:'Thmanyah Sans';src:url('fonts/thmanyahsans-Black.woff2') format('woff2');font-weight:900;font-display:swap}
+@font-face{font-family:'Thmanyah Serif Display';src:url('fonts/thmanyahserifdisplay-Bold.woff2') format('woff2');font-weight:700;font-display:swap}
+@font-face{font-family:'Thmanyah Serif Display';src:url('fonts/thmanyahserifdisplay-Black.woff2') format('woff2');font-weight:900;font-display:swap}
+:root{
+  --paper:#f4ead6; --paper2:#efe2c8; --ink:#2b241c; --ink2:#5a4d3c;
+  --red:#d42a1f; --green:#3f8a3a; --line:#d9c9a8;
+  --tab1:#7fa86b; --tab2:#d9725b; --tab3:#6b93b8; --tab4:#c9a34a; --tab5:#8e7bb5; --tab6:#7d8b8f;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:#8d7a58}html,body{min-height:100%}
+body{
+  font-family:'Thmanyah Sans',sans-serif;color:var(--ink);
+  background:
+    radial-gradient(ellipse at 30% 10%, rgba(255,255,255,.18), transparent 55%),
+    radial-gradient(ellipse at 70% 90%, rgba(0,0,0,.35), transparent 60%),
+    linear-gradient(170deg,#8ca3a8 0%,#b8b096 38%,#c9b88f 55%,#8d7a58 100%);
+  background-attachment:fixed;
+  padding:max(14px,env(safe-area-inset-top)) 10px max(18px,env(safe-area-inset-bottom));
+  min-height:100%;
+}
+bdi.en{font-family:'Thmanyah Sans',sans-serif;font-weight:700;font-size:.95em;color:#3b2f22;letter-spacing:.2px}
+.wrap{max-width:860px;margin:0 auto;position:relative}
+
+/* ---------- notebook ---------- */
+.book{position:relative;margin-left:34px;margin-right:46px}
+.spiral{position:absolute;left:-30px;top:18px;bottom:18px;width:40px;z-index:3;
+  background:repeating-linear-gradient(to bottom, transparent 0 9px, #1d1b19 9px 12px, #4a4744 12px 13px, #1d1b19 13px 16px, transparent 16px 26px);
+  -webkit-mask:linear-gradient(90deg,#000 0 100%);
+}
+.spiral::before{content:"";position:absolute;right:2px;top:0;bottom:0;width:10px;
+  background:repeating-linear-gradient(to bottom, transparent 0 8px, #2a2622 8px 17px, transparent 17px 26px);
+  border-radius:6px;opacity:.55}
+.page{
+  position:relative;background:var(--paper);
+  border-radius:6px 14px 14px 6px;
+  box-shadow:0 2px 0 #e6d6b6,0 4px 0 #dccaa6,0 6px 0 #d2bf98, 0 22px 40px rgba(30,20,5,.45);
+  padding:26px 26px 22px 30px;min-height:560px;overflow:hidden;
+  background-image:
+    radial-gradient(circle at 12% 18%, rgba(160,120,60,.10), transparent 30%),
+    radial-gradient(circle at 85% 70%, rgba(160,120,60,.12), transparent 35%),
+    radial-gradient(circle at 50% 100%, rgba(120,90,40,.10), transparent 40%),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .45  0 0 0 0 .35  0 0 0 0 .2  0 0 0 .09 0'/></filter><rect width='160' height='160' filter='url(%23n)'/></svg>");
+}
+.page::after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;
+  box-shadow:inset 0 0 40px rgba(120,85,35,.22), inset 18px 0 22px -14px rgba(60,40,10,.35)}
+.holes{position:absolute;left:8px;top:18px;bottom:18px;width:10px;
+  background:repeating-linear-gradient(to bottom, transparent 0 9px, #6e6253 9px 16px, transparent 16px 26px);
+  border-radius:5px;opacity:.5}
+.flip-in{animation:flip .45s cubic-bezier(.2,.7,.2,1)}
+@keyframes flip{from{opacity:0;transform:perspective(1200px) rotateY(-14deg) translateX(18px)}to{opacity:1;transform:none}}
+
+/* ---------- tabs ---------- */
+.tabs{position:absolute;right:-46px;top:34px;display:flex;flex-direction:column;gap:6px;z-index:1}
+.tab{width:50px;height:58px;border:none;cursor:pointer;border-radius:0 10px 10px 0;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;
+  color:#fffaf0;font-family:'Thmanyah Sans';font-weight:800;font-size:9.5px;line-height:1.05;
+  box-shadow:inset 3px 0 6px rgba(0,0,0,.25), 2px 2px 4px rgba(0,0,0,.25);
+  transform:translateX(-10px);transition:transform .2s, filter .2s;filter:saturate(.75) brightness(.95);
+  padding:4px 2px 4px 8px}
+.tab svg{width:22px;height:22px;stroke:#fffaf0;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.tab.on{transform:translateX(0);filter:none;box-shadow:inset 3px 0 6px rgba(0,0,0,.15),3px 3px 6px rgba(0,0,0,.35)}
+.tab .tn{font-family:'Permanent Marker';font-size:8px;letter-spacing:.3px;opacity:.9;direction:ltr}
+
+/* ---------- header ---------- */
+.ph{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;border-bottom:2px dashed var(--line);padding-bottom:10px;margin-bottom:12px}
+.ph h1{font-family:'Thmanyah Serif Display';font-weight:900;font-size:30px;line-height:1.15;color:#2b241c}
+.ph .en-t{font-family:'Permanent Marker';font-size:15px;color:#6d5d47;direction:ltr;text-align:right;letter-spacing:.6px}
+.pgno{font-family:'Permanent Marker';font-size:13px;color:#8b7a60;white-space:nowrap;direction:ltr;padding-top:6px}
+
+/* ---------- equation row ---------- */
+.eq{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px 4px;margin:4px 0 16px}
+.eq .it{display:flex;flex-direction:column;align-items:center;gap:3px;width:92px}
+.eq .ic{width:74px;height:74px;border-radius:14px;overflow:hidden;border:2.5px solid #3a2f22;background:#fff8ea;
+  box-shadow:2px 3px 0 rgba(58,47,34,.25);transform:rotate(-2deg)}
+.eq .it:nth-child(4n+3) .ic{transform:rotate(2.5deg)}
+.eq .ic img{width:100%;height:100%;object-fit:cover}
+.eq .lb{font-size:11.5px;font-weight:700;text-align:center;line-height:1.2;color:#4b3f30}
+.eq .plus{font-family:'Permanent Marker';font-size:34px;color:#2b241c;margin:0 2px 18px;line-height:1}
+
+/* ---------- step panels ---------- */
+.grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
+.card{min-width:0}
+.card{position:relative;background:#fbf4e4;border:2px solid #3a2f22;border-radius:12px;padding:10px 10px 12px;
+  box-shadow:3px 4px 0 rgba(58,47,34,.18)}
+.card.wide{grid-column:1/-1}
+.card .num{position:absolute;top:-12px;right:-10px;width:32px;height:32px;border-radius:50%;
+  background:#2b241c;color:#f4ead6;font-family:'Permanent Marker';font-size:16px;display:flex;align-items:center;justify-content:center;
+  box-shadow:2px 2px 0 rgba(0,0,0,.25);z-index:2;direction:ltr}
+.card.pass{border-color:#3f8a3a}.card.pass .num{background:#3f8a3a}
+.card.alt{border-color:#c9a34a;border-style:dashed}.card.alt .num{background:#c9a34a}
+.card.fail{border-color:var(--red)}.card.fail .num{background:var(--red)}
+.card h3{font-family:'Thmanyah Serif Display';font-weight:900;font-size:19px;margin:2px 4px 8px 24px;line-height:1.25}
+.card h3 .en-s{display:block;font-family:'Permanent Marker';font-size:11.5px;color:#7b6a52;direction:ltr;text-align:right;letter-spacing:.4px}
+.shots{display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap;--h:165px}
+.shots.multi .shot{flex:0 1 auto;width:calc(var(--h) * var(--r));max-width:100%;aspect-ratio:var(--r)}
+.shots.one .shot{flex:1 1 auto;width:100%}
+.card.wide .shots.one .shot{max-width:min(540px, calc(400px * var(--r)))}
+.shot{position:relative;min-width:0;border:2px solid #4a3d2d;border-radius:8px;overflow:hidden;background:#e9dcc2;cursor:zoom-in}
+.shot img{display:block;width:100%;height:auto}
+.shot svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.shot .cap{position:absolute;bottom:4px;right:4px;left:4px;text-align:center}
+.shot .cap span{background:rgba(251,244,228,.92);border:1.5px solid #3a2f22;border-radius:6px;padding:1px 7px;font-size:11.5px;font-weight:800;display:inline-block}
+.arrowR{flex:0 0 auto;width:26px;height:26px}
+.card p.t{font-size:14.5px;line-height:1.75;margin-top:9px;color:#2f271e}
+.card p.t b{color:#000}
+.card ul.t{margin:9px 18px 0 0;font-size:14px;line-height:1.75}
+.card ul.t li{margin-bottom:2px}
+.tag{display:inline-block;font-family:'Permanent Marker';font-size:12px;padding:1px 9px;border-radius:5px;color:#fff;margin-left:6px;direction:ltr}
+.tag.g{background:var(--green)}.tag.r{background:var(--red)}
+
+/* drawing animation */
+.mk{stroke:var(--red);stroke-width:var(--sw,1);fill:none;stroke-linecap:round;stroke-linejoin:round}
+.mk.g{stroke:#2f8a2a}
+.mk.cyan{stroke:#0a8fb5}
+.draw .mk{stroke-dasharray:1;stroke-dashoffset:1;animation:dr .7s ease forwards;animation-delay:var(--d,.2s)}
+@keyframes dr{to{stroke-dashoffset:0}}
+.mkt{font-family:'Caveat','Thmanyah Sans',cursive;font-weight:900;fill:var(--red);paint-order:stroke;stroke:#fbf4e4;stroke-width:calc(var(--sw,1)*1.3)}
+
+/* ---------- banner ---------- */
+.banner{margin-top:16px;background:#e7b8a6;border:2px solid #9c3b2a;border-radius:8px;padding:10px 14px;
+  display:flex;gap:10px;align-items:center;box-shadow:inset 0 0 0 3px rgba(255,255,255,.25)}
+.banner svg{flex:0 0 30px;width:30px;height:30px}
+.banner p{font-size:14.5px;font-weight:700;line-height:1.6;color:#4a160d}
+.banner.info{background:#c9dcc0;border-color:#3f6b38}.banner.info p{color:#1f3a1b}
+
+/* ---------- footer nav ---------- */
+.nav{display:flex;justify-content:space-between;align-items:center;margin-top:16px;gap:8px}
+.nav button{font-family:'Thmanyah Serif Display';font-weight:700;font-size:17px;border:2px solid #3a2f22;background:#fff7e6;color:#2b241c;border-radius:10px;padding:6px 14px;cursor:pointer;box-shadow:2px 3px 0 rgba(58,47,34,.25)}
+.nav button:disabled{opacity:.35;cursor:default}
+.dots{display:flex;gap:6px}.dots i{width:9px;height:9px;border-radius:50%;background:#cdbb95;border:1.5px solid #6e5e45}.dots i.on{background:#2b241c}
+.brand{text-align:center;color:#3e3324;font-size:12px;margin-top:14px;opacity:.85}
+.brand b{font-family:'Permanent Marker';font-weight:400;direction:ltr;display:inline-block}
+
+/* checklist */
+.chk{columns:2;column-gap:22px;margin-top:4px}
+.chk label{display:flex;gap:8px;align-items:flex-start;break-inside:avoid;padding:5px 2px;font-size:13.5px;line-height:1.5;border-bottom:1px dashed var(--line);cursor:pointer}
+.chk input{appearance:none;flex:0 0 20px;width:20px;height:20px;border:2px solid #3a2f22;border-radius:4px;background:#fffaf0;margin-top:2px;position:relative;cursor:pointer}
+.chk input:checked::after{content:"";position:absolute;left:4px;top:-4px;width:8px;height:15px;border:solid #2f8a2a;border-width:0 3.5px 3.5px 0;transform:rotate(40deg)}
+.chk label.done span{color:#8b7a60;text-decoration:line-through}
+.chk .sec{column-span:all;font-family:'Thmanyah Serif Display';font-weight:700;font-size:17px;margin:10px 0 2px;color:#5a4a33}
+.reset{font-family:'Thmanyah Sans';font-weight:700;font-size:13px;margin-top:10px;background:none;border:1.5px dashed #6e5e45;border-radius:8px;padding:4px 12px;cursor:pointer;color:#4a3d2d}
+
+/* zoom */
+.zoom{position:fixed;inset:0;background:rgba(20,15,8,.88);display:none;align-items:center;justify-content:center;z-index:50;padding:16px;cursor:zoom-out}
+.zoom.on{display:flex}
+.zoom .zb{position:relative;max-width:min(96vw,1100px);width:100%}
+.zoom .zb img{width:100%;height:auto;border-radius:10px;border:3px solid #f4ead6}
+.zoom .zb svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+
+@media (max-width:640px){
+  body{padding-left:4px;padding-right:4px}
+  .book{margin-left:16px;margin-right:36px}
+  .spiral{left:-20px;width:28px}
+  .tabs{right:-36px;top:24px;gap:5px}
+  .tab{width:36px;height:48px;font-size:0;padding-left:4px;transform:translateX(-4px)}
+  .tab.on{transform:translateX(0);width:38px}
+  .tab .tn{display:none}
+  .tab svg{width:20px;height:20px}
+  .page{padding:18px 12px 16px 18px}
+  .ph{flex-direction:column-reverse;gap:2px}
+  .card p.t{font-size:14px}
+  .ph h1{font-size:24px}
+  .grid{grid-template-columns:minmax(0,1fr)}
+  .eq .it{width:72px}.eq .ic{width:60px;height:60px}.eq .plus{font-size:26px}
+  .chk{columns:1}
+  .shots.multi{--h:140px !important}
+}
+@media print{
+  body{background:#fff}.tabs,.nav,.spiral{display:none}.book{margin:0}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="book">
+    <div class="spiral" aria-hidden="true"></div>
+    <nav class="tabs" id="tabs"></nav>
+    <main class="page" id="page"><div class="holes"></div><div id="content"></div></main>
+  </div>
+  <div class="brand">غرفة معايرة الماصات · <b>XPE26PC · Testo 435 · Calibry</b></div>
+</div>
+<div class="zoom" id="zoom"><div class="zb" id="zb"></div></div>
+
+<script>
+const IMG = {"eq_pc": ["img/eq_pc.webp", 2.0896], "eq_testo": ["img/eq_testo.webp", 0.419], "eq_water": ["img/eq_water.webp", 1.2651], "eq_pipette": ["img/eq_pipette.webp", 0.5905], "eq_balance": ["img/eq_balance.webp", 0.5619], "eq_tips": ["img/eq_tips.webp", 0.7595], "eq_calibry": ["img/eq_calibry.webp", 0.75], "eq_report": ["img/eq_report.webp", 0.969], "eq_suction": ["img/eq_suction.webp", 0.5619], "eq_login": ["img/eq_login.webp", 1.5613], "r_water": ["img/r_water.webp", 1.0227], "r_balance": ["img/r_balance.webp", 1.1968], "r_login": ["img/r_login.webp", 1.3393], "s1_pc": ["img/s1_pc.webp", 0.9], "s1_testo": ["img/s1_testo.webp", 1.8947], "s2_login": ["img/s2_login.webp", 1.3393], "s3_icon": ["img/s3_icon.webp", 1.125], "s3_green": ["img/s3_green.webp", 1.7787], "s4_min": ["img/s4_min.webp", 1.25], "s5_calibry": ["img/s5_calibry.webp", 1.125], "s6_menu": ["img/s6_menu.webp", 0.6489], "s6_search": ["img/s6_search.webp", 1.7578], "s7_iso": ["img/s7_iso.webp", 2.9126], "s8_cyan": ["img/s8_cyan.webp", 2.9126], "s9_date": ["img/s9_date.webp", 1.0676], "s10_start": ["img/s10_start.webp", 1.5762], "s10_balance": ["img/s10_balance.webp", 1.125], "s11_level": ["img/s11_level.webp", 0.6744], "s12_measure": ["img/s12_measure.webp", 3.5573], "s13_green": ["img/s13_green.webp", 3.5573], "s13_view": ["img/s13_view.webp", 1.7045], "s13_save": ["img/s13_save.webp", 1.875], "s13_name": ["img/s13_name.webp", 1.3081], "s14_red": ["img/s14_red.webp", 3.5573], "s14_cancel": ["img/s14_cancel.webp", 0.8656], "w_trap": ["img/w_trap.webp", 0.7033], "w_suction": ["img/w_suction.webp", 0.7033], "w_max": ["img/w_max.webp", 1.1968], "w_metal": ["img/w_metal.webp", 1.7787], "end_pc": ["img/end_pc.webp", 2.093], "s7_add": ["img/s7_add.webp", 1.4062], "s14_report": ["img/s14_report.webp", 1.0714], "n_dispense": ["img/n_dispense.webp", 0.6611], "e_remove": ["img/e_remove.webp", 1.3867], "e_ring": ["img/e_ring.webp", 1.4308]};
+const en = s => `<bdi class="en" dir="ltr">\u2066${s}\u2069</bdi>`;
+
+const ICONS = {
+  flask:'<path d="M9 3h6M10 3v6L4.5 19a1.5 1.5 0 0 0 1.3 2h12.4a1.5 1.5 0 0 0 1.3-2L14 9V3"/><path d="M7 15h10"/>',
+  power:'<path d="M12 3v8"/><path d="M6.3 6.8a8 8 0 1 0 11.4 0"/>',
+  pipette:'<path d="M15 3l6 6M18 6l-9.5 9.5-3 .5.5-3L15.5 3.5"/><path d="M5.5 16.5L3 21"/>',
+  scale:'<path d="M12 3v18M7 21h10M5 7h14"/><path d="M5 7l-3 7a3 3 0 0 0 6 0zM19 7l-3 7a3 3 0 0 0 6 0z"/>',
+  drop:'<path d="M12 3s7 7.5 7 12a7 7 0 0 1-14 0c0-4.5 7-12 7-12z"/>',
+  check:'<path d="M4 12l5 5L20 6"/>',
+};
+
+// marker spec: c=[x,y,r] circle (+ optional a=[fromX,fromY] arrow), b=[x0,y0,x1,y1] box, x=[x,y,s] red X, t=[x,y,text], cls
+const PAGES = [
+ { id:'notes', tab:'قبل البدء', tn:'NOTES', icon:'drop', color:'var(--tab6)',
+   title:'قبل البدء: ملاحظات الاستخدام', en:'0. BEFORE YOU START',
+   eq:[['eq_water','ماء Deionized'],['eq_suction','جهاز الشفط'],['eq_balance','الميزان']],
+   cards:[
+    {n:'A', h:'الحد الأقصى للميزان', hs:'MAX 10 mL', shots:[{i:'w_max', m:[{c:[.7,.545,.13],a:[.95,.12]},{t:[.5,.93,'MAX 10 mL']}]}],
+     t:`الحد الأقصى لسعة الميزان <b>10 مل (${en('10 mL')})</b>.`},
+    {n:'B', h:'المنطقة السوداء', hs:'DO NOT SUCTION THE BLACK AREA', shots:[{i:'w_trap', m:[{c:[.17,.8,.14],a:[.7,.97]},{t:[.62,.08,'لا تُشفط ✕']}]}],
+     t:`<b>لا تُشفط المنطقة السوداء</b>؛ لأن الماء فيها يحافظ على توازن الرطوبة داخل الميزان.`},
+    {n:'C', h:'نوع الماء', hs:'DEIONIZED WATER ONLY', shots:[{i:'r_water', m:[{c:[.5,.7,.3],a:[.12,.12]},{t:[.32,.1,'Deionized']}]}],
+     t:`يجب أن يكون الماء المستخدم <b>ماءً منزوع الأيونات (${en('Deionized Water')})</b>.`},
+    {n:'D', cls:'fail', h:'التأني في التعامل مع الميزان', hs:'ONE READING AT A TIME', shots:[{i:'n_dispense', m:[{c:[.44,.63,.14],a:[.9,.2]},{t:[.3,.1,'قراءة واحدة']}]}],
+     t:`احرص دائماً على <b>التعامل بحذر مع الميزان وعدم الاستعجال</b>؛ فلا تُؤخذ قراءة جديدة إلا بعد تسجيل القراءة السابقة، إذ إن <b>إعطاء الميزان أكثر من قراءة يسبب خللاً في الجهاز</b>.`},
+    {n:'E', h:'جفاف الحلقة المعدنية الداخلية', hs:'KEEP THE INNER METAL RING DRY', wide:true, shots:[
+        {i:'e_remove', m:[{c:[.33,.22,.16],a:[.85,.7]}], cap:'بعد فكّ القطع'},
+        {arrow:true},
+        {i:'e_ring', m:[{c:[.47,.5,.21],a:[.95,.95]},{c:[.47,.5,.06],cls:'cyan',d:1},{t:[.5,.08,'الحلقة المعدنية: جافّة دائماً']}]},
+        {arrow:true},
+        {i:'w_suction', m:[{c:[.48,.72,.14],a:[.33,.44]}], cap:'جهاز الشفط'}],
+     t:`احرص على أن تبقى <b>الحلقة المعدنية الصغيرة المجاورة للأنبوب الزجاجي</b> داخل الميزان <b>جافة</b> دون أن يصلها الماء (علماً بأن الميزان كله يجب ألا يصله الماء)، وفي حال وصول الماء إليها <b>يُستخدم جهاز الشفط لسحبه</b>.`},
+   ],
+   banner:`الحد الأقصى ${en('10 mL')} • لا تُشفط المنطقة السوداء • الحلقة المعدنية الداخلية جافّة دائماً • أغلق الجهاز كاملاً بعد الانتهاء`},
+
+ { id:'start', tab:'التشغيل', tn:'START', icon:'power', color:'var(--tab1)',
+   title:'الدخول وتشغيل الأجهزة', en:'1. ENTRY & STARTUP',
+   eq:[['eq_pc','الكمبيوتر'],['eq_testo','جهاز الحرارة Testo 435'],['eq_calibry','Calibry']],
+   cards:[
+    {n:0, h:'الحجز والدخول', hs:'BOOK & ENTER', shots:[{svg:'door'}],
+     t:`احجز موعداً مع <b>مسؤول المعايرة</b>، ثم ادخل الغرفة بعد أن يأذن لك بالدخول.`},
+    {n:1, h:'تشغيل الأجهزة', hs:'POWER ON', shots:[{i:'s1_pc', m:[]},{i:'s1_testo', m:[{c:[.66,.47,.075],a:[.9,.95]}]}],
+     t:`على افتراض أن جميع الأجهزة مطفأة: شغّل <b>جهاز قياس الحرارة</b> و<b>جهاز الكمبيوتر</b>.`},
+    {n:2, h:'تسجيل الدخول إلى ويندوز', hs:'WINDOWS LOGIN', wide:true, shots:[{svg:'winlogin'}],
+     t:`سجّل الدخول باسم المستخدم وكلمة المرور <b>(الخاصة بكل قسم)</b>.`},
+    {n:3, h:'برنامج جهاز الحرارة', hs:'WAIT 10s → CAPTURE TOOL → GREEN', wide:true, shots:[
+        {i:'s3_icon', m:[{c:[.33,.6,.17],a:[.8,.95]},{t:[.55,.12,'Calibry Capture Tool']}]},
+        {arrow:true},
+        {i:'s3_green', m:[{b:[.04,.085,.93,.15],cls:'g'},{t:[.62,.32,'✓ أخضر'],g:1}]}],
+     t:`انتظر <b>10 ثوانٍ</b> بعد تشغيل الجهاز، ثم افتح برنامج <b>${en('Calibry Capture Tool')}</b> الخاص بجهاز الحرارة، وتأكد من أن <b>الشريط باللون الأخضر</b>.`},
+    {n:4, h:'تصغير البرنامج', hs:'MINIMIZE – DO NOT CLOSE', wide:true, shots:[{i:'s4_min', m:[{c:[.44,.27,.075],a:[.2,.75]},{x:[.64,.27,.07],d:.9}]}],
+     t:`قم <b>بتصغير (${en('Minimize')})</b> البرنامج دون إغلاقه.`},
+   ],
+   banner:`انتظر 10 ثوانٍ قبل فتح ${en('Capture Tool')} • تأكد من أن الشريط أخضر • صغّر البرنامج ولا تغلقه`},
+
+ { id:'pipette', tab:'الماصة', tn:'PIPETTE', icon:'pipette', color:'var(--tab2)',
+   title:'فتح Calibry وتجهيز الماصة', en:'2. CALIBRY & PIPETTE',
+   eq:[['eq_calibry','Calibry'],['eq_pipette','الماصة (الرقم التسلسلي والكود)']],
+   cards:[
+    {n:5, h:'فتح برنامج المعايرة', hs:'OPEN CALIBRY & LOG IN', wide:true, shots:[
+        {i:'s5_calibry', m:[{c:[.7,.6,.15],a:[.95,.1]}]},
+        {arrow:true},
+        {i:'s2_login', m:[{b:[.06,.35,.87,.58]},{c:[.55,.715,.09],a:[.25,.95],d:.9}]}],
+     t:`افتح برنامج المعايرة <b>${en('Calibry')}</b>، وسيطلب اسم المستخدم وكلمة المرور، فأدخلهما <b>(وهما غالباً نفس بيانات ويندوز لكل قسم)</b>.`},
+    {n:6, h:'البحث عن الماصة', hs:'PIPETTES → SEARCH', wide:true, shots:[
+        {i:'s6_menu', m:[{c:[.24,.45,.13],a:[.7,.75]}]},
+        {arrow:true},
+        {i:'s6_search', m:[{b:[.02,.5,.64,.64]},{t:[.3,.4,'Serial / Code']}]}],
+     t:`بعد فتح برنامج المعايرة اضغط على <b>${en('Pipettes')}</b>، ثم ابحث عن الماصة <b>بالرقم التسلسلي (${en('Serial Number')})</b> أو <b>بالكود</b>. إذا كانت الماصة مسجلة فأكمل الخطوات.`},
+    {n:7, cls:'alt', h:'إذا لم تكن الماصة مسجلة', hs:'ADD PIPETTE', wide:true, shots:[
+        {i:'s6_menu', m:[{c:[.15,.15,.12],a:[.6,.32]}]},
+        {arrow:true},
+        {i:'s7_add', m:[{b:[.04,.27,.95,.45]},{t:[.5,.62,'Serial + Code']},{c:[.74,.9,.08],d:1}]}],
+     t:`اضغط <b>إضافة ماصة (${en('Add Pipette')})</b>، ثم أدخل <b>الرقم التسلسلي</b> و<b>الكود</b>، ثم اختر <b>نوع الماصة وحجمها وجميع تفاصيلها</b> حتى يكتمل تسجيلها.`},
+   ],
+   banner:`ابحث أولاً بالرقم التسلسلي أو الكود • إذا لم تكن الماصة مسجلة فأضفها بجميع تفاصيلها`},
+
+ { id:'task', tab:'المهمة', tn:'TASK', icon:'check', color:'var(--tab3)',
+   title:'اختيار المهمة وبدء المعايرة', en:'3. TASK / METHOD & START',
+   eq:[['eq_calibry','Calibry'],['eq_balance','الميزان XPE26PC']],
+   cards:[
+    {n:8, h:'اختيار طريقة العمل', hs:'ISO 8655 PISTON TYPE A', wide:true, shots:[{i:'s8_cyan', m:[{c:[.105,.55,.04],a:[.03,.95]},{b:[.13,.515,.95,.585],cls:'cyan',d:.8},{t:[.55,.93,'ISO Piston type A ✓']}]}],
+     t:`اختر للماصة مهمة (<b>${en('Task')}</b>) أو طريقة عمل (<b>${en('Method')}</b>)، ويُفضّل اختيار <b>${en('ISO 8655 Piston type A')}</b>.`},
+    {n:9, h:'تاريخ المعايرة القادم', hs:'NEXT CALIBRATION DATE', shots:[{i:'s9_date', m:[{c:[.5,.215,.12],a:[.12,.6]},{c:[.585,.42,.07],d:1}]}],
+     t:`حدّد <b>تاريخ المعايرة القادم</b> (<b>6 أشهر</b> أو <b>سنة</b>).`},
+    {n:10, h:'بدء المعايرة', hs:'GREEN BUTTON → BALANCE → CONTINUE', shots:[
+        {i:'s10_start', m:[{c:[.26,.42,.08],a:[.6,.95]}]},
+        {i:'s10_balance', m:[{c:[.23,.27,.08]},{x:[.38,.305,.045],d:.8},{c:[.76,.87,.15],a:[.5,.62],d:1.2}]}],
+     t:`ابدأ المعايرة بالضغط على <b>الزر الأخضر</b>، وتأكد من أن الوضع <b>الميزان (${en('Balance')})</b> وليس <b>${en('Demo')}</b>، ثم اضغط <b>${en('Continue')}</b>.`},
+   ],
+   banner:`اختر ${en('ISO 8655 Piston type A')} • الوضع ${en('Balance')} وليس ${en('Demo')}`},
+
+ { id:'measure', tab:'القياس', tn:'MEASURE', icon:'scale', color:'var(--tab4)',
+   title:'أخذ القراءات', en:'4. MEASUREMENTS',
+   eq:[['eq_pipette','الماصة'],['eq_tips','الرؤوس'],['eq_water','ماء Deionized'],['eq_balance','الميزان']],
+   cards:[
+    {n:11, h:'اختيار المستوى', hs:'SELECT LEVEL (LEFT)', shots:[{i:'s11_level', m:[{c:[.57,.78,.13],a:[.95,.98]}]}],
+     t:`ستُفتح صفحة المعايرة، فابدأ بالمستوى (<b>${en('Level')}</b>) الذي تريده من <b>اليسار</b>، مثل ${en('(10, 50, 100)')}. بعد أخذ أول قراءة <b>لا يمكن تغيير المستوى</b> حتى يكتمل بالكامل.`},
+    {n:12, cls:'pass', h:'10 قراءات لكل مستوى', hs:'10 READINGS / LEVEL – BAR GREEN', shots:[{i:'s13_green', m:[{b:[.03,.11,.93,.24],cls:'g'},{b:[.84,.27,.97,.42],d:1},{t:[.5,.93,'10 قراءات لكل مستوى']}]}],
+     t:`خذ <b>10 قراءات لكل مستوى</b> حتى تنتهي من جميع المستويات، مع التأكد من أن <b>الشريط العلوي يبقى باللون الأخضر</b>.`},
+    {n:13, cls:'fail', h:'عند ظهور الشريط الأحمر', hs:'RED BAR = SYSTEMATIC / RANDOM ERROR', wide:true, shots:[{i:'s14_red', m:[{b:[.03,.12,.93,.25]},{t:[.5,.5,'Systematic / Random']}]}],
+     t:`ظهور <b>الشريط الأحمر</b> يعني وجود خطأ منتظم (<b>${en('Systematic')}</b>) أو عشوائي (<b>${en('Random')}</b>)، فعالج الخطأ أو انتظر؛ إذ غالباً ما يُصحّح مجموع القراءات الخطأ لاعتماده على <b>المتوسط</b>.`},
+   ],
+   banner:`لا يتغيّر المستوى بعد أول قراءة • 10 قراءات لكل مستوى • لا تستعجل ولا تُعطِ الميزان أكثر من قراءة`},
+
+ { id:'report', tab:'التقرير', tn:'REPORT', icon:'flask', color:'var(--tab5)',
+   title:'التقرير وإنهاء العمل', en:'5. REPORT & EXIT',
+   eq:[['eq_report','التقرير'],['eq_pc','إطفاء الكمبيوتر']],
+   cards:[
+    {n:14, h:'مراجعة التقرير', hs:'VIEW & CHECK REPORT', wide:true, shots:[
+        {i:'s13_view', m:[{c:[.44,.3,.1],a:[.1,.9]}], cap:'View Calibration Report'},
+        {arrow:true},
+        {i:'s14_report', m:[{b:[.03,.06,.47,.16]},{t:[.68,.11,'Code / Serial']},{b:[.03,.39,.97,.64],d:.8},{t:[.5,.36,'القراءات']},{b:[.03,.68,.97,.87],d:1.1},{c:[.81,.94,.07],d:1.4}]}],
+     t:`بعد الانتهاء اعرض <b>التقرير</b> وتأكد من صحة كل شيء: <b>الكود</b> و<b>الرقم التسلسلي</b> و<b>القراءات</b> و<b>النتائج</b> و<b>تاريخ المعايرة القادم (${en('Next Calibration')})</b>.`},
+    {n:15, h:'حفظ التقرير', hs:'SAVE AS PIPETTE CODE', wide:true, shots:[
+        {i:'s13_save', m:[{c:[.35,.33,.1],a:[.75,.9]}], cap:'Save Report'},
+        {arrow:true},
+        {i:'s13_name', m:[{b:[.02,.66,.55,.76]},{t:[.5,.88,'اسم الملف = كود الماصة']}]}],
+     t:`أغلق التقرير، ثم اضغط <b>حفظ التقرير</b> <b>باسم كود الماصة</b> حتى لا تختلط التقارير ببعضها.`},
+    {n:16, h:'إطفاء الكمبيوتر', hs:'FULL SHUT DOWN', wide:true, shots:[{i:'end_pc', m:[]},{arrow:true},{svg:'shutdown'}],
+     t:`بعد الانتهاء ونقل جميع ملفاتك، <b>أطفئ الكمبيوتر</b> وأغلق الجهاز <b>كاملاً</b>.`},
+    {n:'✓', h:'قائمة التحقق السريعة', hs:'QUICK CHECKLIST', wide:true, checklist:true},
+   ],
+   banner:`احفظ التقرير باسم كود الماصة • انقل ملفاتك • أطفئ الجهاز كاملاً`, bannerType:'info'},
+];
+
+const CHECK = [
+ ['قبل البدء',['قرأت ملاحظات الاستخدام']],
+ ['الدخول والتشغيل',['حجز موعد مع مسؤول المعايرة والإذن بالدخول','تشغيل جهاز الحرارة والكمبيوتر','تسجيل الدخول إلى ويندوز (حسب القسم)','الانتظار 10 ثوانٍ ثم فتح Calibry Capture Tool والتأكد من الشريط الأخضر','تصغير البرنامج دون إغلاقه']],
+ ['الماصة',['فتح Calibry وتسجيل الدخول','Pipettes ← البحث بالرقم التسلسلي أو الكود','إن لم تكن مسجلة: Add Pipette بجميع التفاصيل']],
+ ['المهمة',['اختيار ISO 8655 Piston type A','تحديد تاريخ المعايرة القادم (6 أشهر أو سنة)','الزر الأخضر ← Balance وليس Demo ← Continue']],
+ ['القياس',['اختيار المستوى من اليسار','10 قراءات لكل مستوى مع بقاء الشريط أخضر','معالجة الشريط الأحمر إن ظهر']],
+ ['التقرير وإنهاء العمل',['مراجعة التقرير (الكود، الرقم التسلسلي، القراءات، النتائج، Next Calibration)','حفظ التقرير باسم كود الماصة','نقل الملفات وإطفاء الكمبيوتر كاملاً']],
+];
+
+/* ---------- drawing helpers (hand-drawn feel) ---------- */
+function rnd(seed){let s=seed;return()=>{s=(s*9301+49297)%233280;return s/233280}}
+function circlePath(cx,cy,r,seed){
+  const R=rnd(seed); let d='', pts=[]; const turns=1.15, n=40, start=R()*6.28;
+  for(let k=0;k<=n;k++){const a=start+k/n*turns*6.283; const rr=r*(1+(R()-.5)*.08+(k/n)*.06);
+    pts.push([cx+Math.cos(a)*rr*1.08, cy+Math.sin(a)*rr*.94]);}
+  d='M'+pts.map(p=>p[0].toFixed(2)+' '+p[1].toFixed(2)).join(' L');
+  return d;
+}
+function arrowPath(x1,y1,x2,y2){
+  const mx=(x1+x2)/2+(y2-y1)*.18, my=(y1+y2)/2-(x2-x1)*.18;
+  const ang=Math.atan2(y2-my,x2-mx), L=Math.max(3.2,Math.hypot(x2-x1,y2-y1)*.12);
+  const h1=[x2-L*Math.cos(ang-.5),y2-L*Math.sin(ang-.5)], h2=[x2-L*Math.cos(ang+.5),y2-L*Math.sin(ang+.5)];
+  return `M${x1} ${y1} Q${mx} ${my} ${x2} ${y2} M${h1[0]} ${h1[1]} L${x2} ${y2} L${h2[0]} ${h2[1]}`;
+}
+function overlay(meta, marks, big){
+  const ratio = meta[1], H = 100/ratio; let s='', seed=7, delay=.25;
+  const P = (x,y)=>[x*100, y*H];
+  for(const m of marks||[]){
+    const d = (m.d!=null? m.d : delay); delay += .35; const cls = m.cls||'';
+    if(m.c){const [x,y]=P(m.c[0],m.c[1]); const r=m.c[2]*100;
+      s+=`<path pathLength="1" class="mk ${cls}" style="--d:${d}s;--len:${(r*7.5).toFixed(0)}" d="${circlePath(x,y,r,seed++)}"/>`;
+      if(m.a){const [fx,fy]=P(m.a[0],m.a[1]); const ang=Math.atan2(fy-y,fx-x); const ex=x+Math.cos(ang)*r*1.15, ey=y+Math.sin(ang)*r*1.05;
+        s+=`<path pathLength="1" class="mk ${cls}" style="--d:${d+.35}s;--len:300" d="${arrowPath(fx,fy,ex,ey)}"/>`;}
+    }
+    if(m.b){const [x0,y0]=P(m.b[0],m.b[1]),[x1,y1]=P(m.b[2],m.b[3]); const j=.6;
+      s+=`<path pathLength="1" class="mk ${cls}" style="--d:${d}s;--len:${(2*(x1-x0+y1-y0)+40).toFixed(0)}" d="M${x0-j} ${y0+j} L${x1+j} ${y0-j} L${x1-j} ${y1+j} L${x0+j} ${y1-j} Z M${x0-j} ${y0+j} L${x0+3} ${y0}"/>`;}
+    if(m.x){const [x,y]=P(m.x[0],m.x[1]); const z=m.x[2]*100;
+      s+=`<path pathLength="1" class="mk" style="--d:${d}s;--len:200;stroke-width:calc(var(--sw,1)*1.35)" d="M${x-z} ${y-z} L${x+z} ${y+z} M${x+z} ${y-z} L${x-z} ${y+z}"/>`;}
+    if(m.t){const [x,y]=P(m.t[0],m.t[1]); const fs = Math.max(6.5, Math.min(9, 100/ratio*.11)) * (ratio>2.5? .7:1);
+      const ltr=!/[\u0600-\u06FF]/.test(m.t[2]); s+=`<text class="mkt" x="${x}" y="${y}" text-anchor="middle" dominant-baseline="middle" font-size="${fs}" ${ltr?'direction="ltr" unicode-bidi="embed"':''} ${m.g?'style="fill:#2f8a2a"':''}>${m.t[2]}</text>`;}
+  }
+  return `<svg viewBox="0 0 100 ${H.toFixed(2)}" preserveAspectRatio="none">${s}</svg>`;
+}
+const ARROW_SVG = `<svg class="arrowR" viewBox="0 0 26 26"><path d="M22 13 Q13 8 5 13 M10 8 L5 13 L10 18" fill="none" stroke="#2b241c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+const SHUTDOWN_SVG = `<div class="shot" style="cursor:default;background:#fbf4e4;--r:1.333"><svg viewBox="0 0 200 150" style="position:static;width:100%;height:auto;display:block">
+  <rect x="0" y="0" width="200" height="150" fill="#e8f0f6"/>
+  <rect x="10" y="10" width="120" height="115" rx="6" fill="#f8fbff" stroke="#2b241c" stroke-width="2"/>
+  <rect x="10" y="10" width="120" height="18" rx="6" fill="#2d5a8c"/>
+  <g stroke="#9aaabb" stroke-width="5" stroke-linecap="round"><path d="M22 42h60M22 56h70M22 70h52M22 84h64"/></g>
+  <rect x="62" y="100" width="58" height="18" rx="4" fill="#dde6ef" stroke="#2b241c" stroke-width="1.6"/>
+  <text x="91" y="113" text-anchor="middle" font-family="Thmanyah Sans,Arial" font-weight="800" font-size="10" fill="#1d2b3a">Shut down</text>
+  <rect x="0" y="130" width="200" height="20" fill="#2a4f78"/>
+  <circle cx="14" cy="140" r="8" fill="#5fae4b" stroke="#fff" stroke-width="1.5"/>
+  <path pathLength="1" class="mk" style="--d:.3s;--len:300" d="M58 96 C55 120 82 126 112 123 C128 121 128 98 104 96 C88 94 64 95 58 100"/>
+  <path pathLength="1" class="mk" style="--d:.7s;--len:200" d="M178 70 Q160 100 128 108 M136 101 L128 108 L137 113"/>
+  <text class="mkt" x="168" y="56" text-anchor="middle" font-size="13">Shut Down</text>
+</svg></div>`;
+
+const DOOR_SVG = `<div class="shot" style="cursor:default;background:#fbf4e4;--r:1.333"><svg viewBox="0 0 200 150" style="position:static;width:100%;height:auto;display:block">
+  <rect width="200" height="150" fill="#efe4cc"/>
+  <rect x="22" y="18" width="70" height="122" rx="3" fill="#c79a62" stroke="#2b241c" stroke-width="2.5"/>
+  <rect x="30" y="26" width="54" height="46" rx="2" fill="#d8b07c" stroke="#2b241c" stroke-width="1.6"/>
+  <rect x="30" y="80" width="54" height="52" rx="2" fill="#d8b07c" stroke="#2b241c" stroke-width="1.6"/>
+  <circle cx="80" cy="80" r="4" fill="#ffd86b" stroke="#2b241c" stroke-width="1.6"/>
+  <rect x="34" y="34" width="46" height="16" rx="2" fill="#fffaf0" stroke="#2b241c" stroke-width="1.4"/>
+  <text x="57" y="45" text-anchor="middle" font-family="Thmanyah Sans,Arial" font-weight="800" font-size="7.5" fill="#2b241c">غرفة المعايرة</text>
+  <rect x="112" y="30" width="72" height="66" rx="6" fill="#fffaf0" stroke="#2b241c" stroke-width="2.5"/>
+  <rect x="112" y="30" width="72" height="16" rx="6" fill="#d9725b" stroke="#2b241c" stroke-width="2.5"/>
+  <g fill="#cdbb95">${[0,1,2,3].map(r=>[0,1,2,3,4].map(c=>`<rect x="${118+c*13}" y="${52+r*10}" width="9" height="7" rx="1.5"/>`).join('')).join('')}</g>
+  <rect x="144" y="62" width="9" height="7" rx="1.5" fill="#7fa86b"/>
+  <path class="mk g" pathLength="1" style="--d:.4s" d="M118 120 l10 10 l22 -26"/>
+  <path class="mk" pathLength="1" style="--d:.8s" d="M150 66 C 135 90 110 95 95 80 M101 79 L95 80 L97 87"/>
+  <text class="mkt" x="150" y="114" text-anchor="middle" font-size="11">موعد ✓</text>
+</svg></div>`;
+const WINLOGIN_SVG = `<div class="shot" style="cursor:default;background:#fbf4e4;--r:1.777"><svg viewBox="0 0 320 180" style="position:static;width:100%;height:auto;display:block">
+  <defs><linearGradient id="wl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a8fd6"/><stop offset="1" stop-color="#1c4f8f"/></linearGradient></defs>
+  <rect width="320" height="180" fill="url(#wl)"/>
+  <rect x="136" y="26" width="48" height="48" rx="8" fill="#fffaf0" stroke="#2b241c" stroke-width="2.5"/>
+  <circle cx="160" cy="44" r="9" fill="#8fb3d6" stroke="#2b241c" stroke-width="1.8"/><path d="M144 68 q16 -18 32 0" fill="#8fb3d6" stroke="#2b241c" stroke-width="1.8"/>
+  <text x="160" y="92" text-anchor="middle" font-family="Thmanyah Sans,Arial" font-weight="800" font-size="12" fill="#fff">اسم المستخدم (الخاص بالقسم)</text>
+  <rect x="104" y="102" width="112" height="20" rx="3" fill="#fffaf0" stroke="#2b241c" stroke-width="2"/>
+  <text x="114" y="116" font-family="Arial" font-size="12" fill="#2b241c">●●●●●●</text>
+  <rect x="220" y="102" width="20" height="20" rx="3" fill="#2d6fb6" stroke="#2b241c" stroke-width="2"/><path d="M226 112 h9 M231 107 l5 5 l-5 5" stroke="#fff" stroke-width="2" fill="none"/>
+  <path class="mk" pathLength="1" style="--d:.4s" d="M98 98 L222 98 L220 126 L100 127 Z"/>
+  <path class="mk" pathLength="1" style="--d:.8s" d="M60 160 Q70 125 98 116 M90 113 L98 116 L94 123"/>
+  <text class="mkt" x="62" y="168" text-anchor="middle" font-size="12" direction="ltr">Password</text>
+  <text x="250" y="172" font-family="Arial" font-weight="700" font-size="11" fill="#cfe3f5" direction="ltr">Windows</text>
+</svg></div>`;
+function shotHTML(sh, key){
+  if(sh.arrow) return ARROW_SVG;
+  if(sh.svg==='shutdown') return SHUTDOWN_SVG;
+  if(sh.svg==='door') return DOOR_SVG;
+  if(sh.svg==='winlogin') return WINLOGIN_SVG;
+  const meta = IMG[sh.i];
+  return `<div class="shot" data-k="${key}" style="--r:${meta[1].toFixed(3)}">
+    <img src="${meta[0]}" alt="" loading="lazy">${overlay(meta, sh.m)}${sh.cap?`<div class="cap"><span>${sh.cap}</span></div>`:''}</div>`;
+}
+function checklistHTML(){
+  let st={}; try{st=JSON.parse(localStorage.getItem('pipcal_chk')||'{}')}catch(e){}
+  let h='<div class="chk">', k=0;
+  for(const [sec,items] of CHECK){ h+=`<div class="sec">${sec}</div>`;
+    for(const it of items){ const id='c'+(k++); const on=!!st[id];
+      h+=`<label class="${on?'done':''}"><input type="checkbox" data-id="${id}" ${on?'checked':''}><span>${it}</span></label>`;}}
+  return h+'</div><button class="reset" id="resetChk">مسح القائمة لماصة جديدة</button>';
+}
+
+let cur = 0;
+function render(i, anim=true){
+  cur = i; const p = PAGES[i];
+  document.querySelectorAll('.tab').forEach((t,k)=>t.classList.toggle('on',k===i));
+  const eq = p.eq.map(([k,l],j)=>`${j?'<div class="plus">+</div>':''}<div class="it"><div class="ic"><img src="${IMG[k][0]}" alt=""></div><div class="lb">${l}</div></div>`).join('');
+  const cards = p.cards.map((c,ci)=>`
+    <section class="card ${c.wide?'wide':''} ${c.cls||''}">
+      <div class="num">${c.n}</div>
+      <h3>${c.h}<span class="en-s">${c.hs}</span></h3>
+      ${c.checklist? checklistHTML() : `<div class="shots ${c.shots.length>1?'multi':'one'}" style="${c.wide?'':'--h:150px'}">${c.shots.map((s,si)=>shotHTML(s, ci+'-'+si)).join('')}</div>
+      <p class="t">${c.t}</p>${c.ul?`<ul class="t">${c.ul.map(x=>`<li>${x}</li>`).join('')}</ul>`:''}`}
+    </section>`).join('');
+  const warn = `<svg viewBox="0 0 30 30"><path d="M15 3 L28 26 H2 Z" fill="#fff3e6" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" style="color:${p.bannerType==='info'?'#3f6b38':'#9c3b2a'}"/><path d="M15 11v7M15 21.5v.5" stroke="${p.bannerType==='info'?'#3f6b38':'#9c3b2a'}" stroke-width="2.8" stroke-linecap="round"/></svg>`;
+  const html = `
+    <header class="ph"><div><h1>${p.title}</h1><div class="en-t">${p.en}</div></div><div class="pgno">${i+1} / ${PAGES.length}</div></header>
+    <div class="eq">${eq}</div>
+    <div class="grid draw">${cards}</div>
+    <div class="banner ${p.bannerType||''}">${warn}<p>${p.banner}</p></div>
+    <div class="nav">
+      <button id="prev" ${i===0?'disabled':''}>→ السابق</button>
+      <div class="dots">${PAGES.map((_,k)=>`<i class="${k===i?'on':''}"></i>`).join('')}</div>
+      <button id="next" ${i===PAGES.length-1?'disabled':''}>التالي ←</button>
+    </div>`;
+  const c = document.getElementById('content'); c.innerHTML = html;
+  const pg = document.getElementById('page');
+  if(anim){ pg.classList.remove('flip-in'); void pg.offsetWidth; pg.classList.add('flip-in'); window.scrollTo({top:0,behavior:'smooth'}); }
+  document.getElementById('prev').onclick=()=>go(cur-1);
+  document.getElementById('next').onclick=()=>go(cur+1);
+  c.querySelectorAll('.shot[data-k]').forEach(el=>el.onclick=()=>openZoom(el));
+  c.querySelectorAll('.chk input').forEach(inp=>inp.onchange=()=>{
+    let st={}; try{st=JSON.parse(localStorage.getItem('pipcal_chk')||'{}')}catch(e){}
+    st[inp.dataset.id]=inp.checked; inp.parentElement.classList.toggle('done',inp.checked);
+    try{localStorage.setItem('pipcal_chk',JSON.stringify(st))}catch(e){} });
+  sizeStrokes(c);
+  const rb=document.getElementById('resetChk'); if(rb) rb.onclick=()=>{try{localStorage.removeItem('pipcal_chk')}catch(e){} render(cur,false)};
+}
+function sizeStrokes(root){
+  (root||document).querySelectorAll('.shot svg').forEach(sv=>{const w=sv.getBoundingClientRect().width||300; const vb=sv.viewBox.baseVal; const u=vb&&vb.width?vb.width:100;
+    sv.style.setProperty('--sw', (3.2*u/w).toFixed(3)); });
+}
+window.addEventListener('resize',()=>sizeStrokes());
+function go(i){ if(i<0||i>=PAGES.length) return; if(location.hash!=='#'+PAGES[i].id){ location.hash = PAGES[i].id; } else render(i); }
+function fromHash(){ const h=location.hash.slice(1); const i=PAGES.findIndex(p=>p.id===h); render(i<0?0:i); }
+
+function openZoom(el){
+  const zb=document.getElementById('zb'); zb.innerHTML = el.innerHTML;
+  zb.querySelectorAll('.mk').forEach(m=>m.style.animation='none');
+  document.getElementById('zoom').classList.add('on');
+  requestAnimationFrame(()=>sizeStrokes(zb));
+}
+document.getElementById('zoom').onclick=()=>document.getElementById('zoom').classList.remove('on');
+
+document.getElementById('tabs').innerHTML = PAGES.map((p,k)=>`<button class="tab" style="background:${p.color}" aria-label="${p.tab}" data-i="${k}"><svg viewBox="0 0 24 24">${ICONS[p.icon]}</svg>${p.tab}<span class="tn">${p.tn}</span></button>`).join('');
+document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>go(+t.dataset.i));
+
+// swipe
+let sx=null, sy=null;
+document.addEventListener('touchstart',e=>{sx=e.touches[0].clientX;sy=e.touches[0].clientY},{passive:true});
+document.addEventListener('touchend',e=>{ if(sx==null) return; const dx=e.changedTouches[0].clientX-sx, dy=e.changedTouches[0].clientY-sy;
+  if(Math.abs(dx)>70 && Math.abs(dx)>Math.abs(dy)*1.6){ go(cur + (dx>0?1:-1)); } sx=null; },{passive:true});
+document.addEventListener('keydown',e=>{ if(e.key==='ArrowLeft') go(cur+1); if(e.key==='ArrowRight') go(cur-1); if(e.key==='Escape') document.getElementById('zoom').classList.remove('on'); });
+window.addEventListener('hashchange',fromHash);
+fromHash();
+</script>
+</body>
+</html>
