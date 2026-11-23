@@ -2,6 +2,9 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
+<!-- Pipette Calibration Room Guide — Prepared by Fahad F Alanazi. All rights reserved. -->
+<meta name="author" content="Fahad F Alanazi">
+<meta name="copyright" content="© Fahad F Alanazi">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>دليل معايرة الماصات | غرفة المعايرة</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -75,6 +78,7 @@ bdi.en{font-family:'Thmanyah Sans',sans-serif;font-weight:700;font-size:.95em;co
 .tab .tn{font-family:'Permanent Marker';font-size:8px;letter-spacing:.3px;opacity:.9;direction:ltr}
 
 /* ---------- header ---------- */
+.credit{font-family:'Thmanyah Sans',sans-serif;font-size:11.5px;font-weight:500;color:#8b7a60;letter-spacing:.4px;text-align:center;margin:-8px 0 10px;opacity:.9}
 .ph{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;border-bottom:2px dashed var(--line);padding-bottom:10px;margin-bottom:12px}
 .ph h1{font-family:'Thmanyah Serif Display';font-weight:900;font-size:30px;line-height:1.15;color:#2b241c}
 .ph .en-t{font-family:'Permanent Marker';font-size:15px;color:#6d5d47;direction:ltr;text-align:right;letter-spacing:.6px}
@@ -443,6 +447,7 @@ function render(i, anim=true){
     </section>`).join('');
   const warn = `<svg viewBox="0 0 30 30"><path d="M15 3 L28 26 H2 Z" fill="#fff3e6" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" style="color:${p.bannerType==='info'?'#3f6b38':'#9c3b2a'}"/><path d="M15 11v7M15 21.5v.5" stroke="${p.bannerType==='info'?'#3f6b38':'#9c3b2a'}" stroke-width="2.8" stroke-linecap="round"/></svg>`;
   const html = `
+    <div class="credit" dir="ltr">© Prepared by Fahad F Alanazi</div>
     <header class="ph"><div><h1>${p.title}</h1><div class="en-t">${p.en}</div></div><div class="pgno">${i+1} / ${PAGES.length}</div></header>
     <div class="eq">${eq}</div>
     <div class="grid draw">${cards}</div>
